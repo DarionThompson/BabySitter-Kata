@@ -7,24 +7,24 @@ namespace BabySitterKata.Tests
     public class BabySitterTest
     {
 
-        private string clockInTime;
+        private string _clockInTime;
 
-        private string clockOutTime;
+        private string _clockOutTime;
 
-        private Family familyChoice;
+        private Family _familyChoice;
 
-        private BabySitter babySitter;
+        private BabySitter _babySitter;
 
         [SetUp]
         public void SetUp()
         {
-            clockInTime = "5PM";
+            _clockInTime = "5PM";
 
-            clockOutTime = "6PM";
+            _clockOutTime = "6PM";
 
-            babySitter = new BabySitter();
+            _babySitter = new BabySitter();
 
-            familyChoice = new FamilyA();
+            _familyChoice = new FamilyA();
         }
 
         [Test()]
@@ -33,7 +33,7 @@ namespace BabySitterKata.Tests
             //Arrange
 
             //Act
-            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
+            var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice);
 
             //Assert
             Assert.IsNotNull(earnings);
@@ -43,11 +43,11 @@ namespace BabySitterKata.Tests
         public void IfTheclockInTimeStartsEarlilerThan5PMAnErrorValidationMessageIsReturned()
         {
             //Arrange
-            clockInTime = "4PM";
-            var earlyClockInTimeMessage = "You Cannot clock In Before 5PM";
+            _clockInTime = "4PM";
+            var earlyClockInTimeMessage = "You you cannout work before 5PM";
 
             //Act
-            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
+            var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice);
 
             //Assert
             Assert.AreEqual(earlyClockInTimeMessage, earnings);
@@ -60,7 +60,7 @@ namespace BabySitterKata.Tests
 			var selectAFamilyMessage = "You Must Select A Family";
 
 			//Act
-			var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, null);
+			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, null);
 
 			//Assert
 			Assert.AreEqual(selectAFamilyMessage, earnings);
@@ -71,11 +71,11 @@ namespace BabySitterKata.Tests
         public void IfTheclockoutTimeIsLaterThan4AMAnErrorValidationMessageIsReturned()
         {
             //Arrange
-            clockOutTime = "5AM";
-            var lateClockOutTimeMessage = "You Cannot clock out past 4AM";
+            _clockOutTime = "5AM";
+            var lateClockOutTimeMessage = "You cannout work past 4AM";
 
             //Act
-            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
+            var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice);
 
             //Assert
             Assert.AreEqual(lateClockOutTimeMessage, earnings);
