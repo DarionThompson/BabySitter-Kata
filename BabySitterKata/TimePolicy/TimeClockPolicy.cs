@@ -18,5 +18,10 @@ namespace BabySitterKata.TimePolicy
 		{
             return endTime >= _clockOutRestriction && endTime <= _clockInRestriction;
 		}
+
+        public bool AssertStartTimeAndEndTimeTimePolicy(DateTime startTime, DateTime endTime)
+        {
+            return endTime < startTime;
+        }
     }
 }

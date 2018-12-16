@@ -12,6 +12,8 @@ namespace BabySitterKata
 
         private const string _lateEndTimeMessage = "You cannout work past 4AM";
 
+        private const string _errorEndTimeMessage = "Your end time cannot be before your start time";
+
         private readonly ITimeClockPolicy _timeClockPolicy;
 
         public BabySitter()
@@ -46,11 +48,18 @@ namespace BabySitterKata
 
             var endTime = DateTime.Parse(clockOutTime);
 
-            if(_timeClockPolicy.AssertStartTimePolicy(startTime)){
+            if(_timeClockPolicy.AssertStartTimePolicy(startTime))
+            {
                 message = _earlyStartTimeMessage;
             }
-            else if(_timeClockPolicy.AsserEndTimePolicy(endTime)){
+            else if(_timeClockPolicy.AsserEndTimePolicy(endTime))
+            {
                 message = _lateEndTimeMessage;
+            }
+
+            else if(_timeClockPolicy.AssertStartTimeAndEndTimeTimePolicy(startTime, endTime))
+            {
+                message = _errorEndTimeMessage;
             }
 
             return message;

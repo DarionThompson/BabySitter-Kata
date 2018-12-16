@@ -8,5 +8,6 @@ namespace BabySitterKata.TimePolicy
 
         bool AsserEndTimePolicy(DateTime endTime);
 
+        bool AssertStartTimeAndEndTimeTimePolicy(DateTime startTime, DateTime endTime);
     }
 }

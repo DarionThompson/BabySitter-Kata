@@ -81,5 +81,20 @@ namespace BabySitterKata.Tests
             Assert.AreEqual(lateClockOutTimeMessage, earnings);
         }
 
-    }
+        [Test()]
+        public void IfTheclockoutTimeIsBeforeThanClockInTimeAnErrorValidationMessageIsReturned()
+		{
+            //Arrange
+            _clockInTime = "8PM";
+			_clockOutTime = "6PM";
+			var errorClockOutTimeMessage = "Your end time cannot be before your start time";
+
+			//Act
+			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice);
+
+			//Assert
+			Assert.AreEqual(errorClockOutTimeMessage, earnings);
+		}
+
+	}
 }
