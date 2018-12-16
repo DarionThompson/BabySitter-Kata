@@ -6,14 +6,15 @@ namespace BabySitterKata.Tests
     public class BabySitterTest
     {
         [Test()]
-        public void WhenBabySitterCalculatesNightlyChargeItReturnsANumber()
+        public void WhenTheBabySitterCalculatesNightlyChargeItReturnsANumber()
         {
             BabySitter babySitter = new BabySitter();
+            var clockInTime = string.Empty;
+            var clockOutTime = string.Empty;
 
-            var earnings = babySitter.CalculateNightlyCharge();
+            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime);
 
             Assert.IsNotNull(earnings);
-
         }
     }
 }

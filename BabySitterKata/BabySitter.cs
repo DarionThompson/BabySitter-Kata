@@ -4,8 +4,9 @@ namespace BabySitterKata
 {
     public class BabySitter
     {
-        public int CalculateNightlyCharge()
+        public int CalculateNightlyCharge(string clockInTime, string clockOutTime)
         {
+            
             return 0;
         }
     }
