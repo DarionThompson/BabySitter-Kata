@@ -18,9 +18,9 @@ namespace BabySitterKata.Tests
         [SetUp]
         public void SetUp()
         {
-            clockInTime = string.Empty;
+            clockInTime = "5PM";
 
-            clockInTime = string.Empty;
+            clockOutTime = "6PM";
 
             babySitter = new BabySitter();
 
@@ -31,8 +31,6 @@ namespace BabySitterKata.Tests
         public void WhenTheBabySitterCalculatesNightlyChargeItReturnsANumber()
         {
             //Arrange
-            clockInTime = "5PM";
-            clockOutTime = "6PM";
 
             //Act
             var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
@@ -45,9 +43,7 @@ namespace BabySitterKata.Tests
         public void IfTheclockInTimeStartsEarlilerThan5PMAnErrorValidationMessageIsReturned()
         {
             //Arrange
-			clockInTime = "4PM";
-			clockOutTime = "6PM";
-
+            clockInTime = "4PM";
             var earlyClockInTimeMessage = "You Cannot clock In Before 5PM";
 
             //Act
@@ -61,9 +57,6 @@ namespace BabySitterKata.Tests
         public void IfTheBabySitterDoesNotSelectAFamilyAnErrorValidationMessageIsReturned()
 		{
 			//Arrange
-			clockInTime = "5PM";
-			clockOutTime = "6PM";
-
 			var earlyClockInTimeMessage = "You Must Select A Family";
 
 			//Act
@@ -72,6 +65,7 @@ namespace BabySitterKata.Tests
 			//Assert
 			Assert.AreEqual(earnings, earlyClockInTimeMessage);
 		}
+
 
     }
 }
