@@ -1,21 +1,41 @@
-﻿using NUnit.Framework;
+﻿using BabySitterKata.FamilyModels;
+using NUnit.Framework;
 
 namespace BabySitterKata.Tests
 {
     [TestFixture()]
     public class BabySitterTest
     {
+
+        private string clockInTime;
+
+        private string clockOutTime;
+
+        private Family familyChoice;
+
+        private BabySitter babySitter;
+
+        [SetUp]
+        public void SetUp()
+        {
+            clockInTime = string.Empty;
+
+            clockInTime = string.Empty;
+
+            babySitter = new BabySitter();
+
+            familyChoice = new FamilyA();
+        }
+
         [Test()]
         public void WhenTheBabySitterCalculatesNightlyChargeItReturnsANumber()
         {
             //Arrange
-            BabySitter babySitter = new BabySitter();
-            var clockInTime = "5PM";
-            var clockOutTime = "6";
-            var family = string.Empty;
+            clockInTime = "5PM";
+            clockOutTime = "6PM";
 
             //Act
-            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, family);
+            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
 
             //Assert
             Assert.IsNotNull(earnings);
@@ -25,15 +45,14 @@ namespace BabySitterKata.Tests
         public void IfTheclockInTimeStartsEarlilerThan5PMAnErrorValidationMessageIsReturned()
         {
             //Arrange
-            BabySitter babySitter = new BabySitter();
-            var clockInTime = "4PM";
-            var clockOutTime = string.Empty;
-            var family = string.Empty;
+
+			clockInTime = "4PM";
+			clockOutTime = "6PM";
 
             var earlyClockInTimeMessage = "You Cannot clock In Before 5PM";
 
             //Act
-            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, family);
+            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
 
             //Assert
             Assert.AreEqual(earnings, earlyClockInTimeMessage);
