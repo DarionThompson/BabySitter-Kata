@@ -66,5 +66,20 @@ namespace BabySitterKata.Tests
 			Assert.AreEqual(selectAFamilyMessage, earnings);
 		}
 
+
+        [Test()]
+        public void IfTheclockoutTimeIsLaterThan4AMAnErrorValidationMessageIsReturned()
+        {
+            //Arrange
+            clockOutTime = "5AM";
+            var lateClockOutTimeMessage = "You Cannot clock out past 4AM";
+
+            //Act
+            var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
+
+            //Assert
+            Assert.AreEqual(lateClockOutTimeMessage, earnings);
+        }
+
     }
 }
