@@ -1,9 +1,12 @@
-﻿
+﻿using System;
 
 namespace BabySitterKata
 {
-    class BabySitter
+    public class BabySitter
     {
-        
+        public int CalculateNightlyCharge()
+        {
+            return 0;
+        }
     }
 }
