@@ -1,5 +1,6 @@
 ﻿using System;
 using BabySitterKata.FamilyModels;
+using BabySitterKata.TimePolicy;
 
 namespace BabySitterKata
 {
@@ -7,37 +8,52 @@ namespace BabySitterKata
     {
         private const string _missingFamilyChoiceMessage = "You Must Select A Family";
 
-        private const string _earlyStartTimeMessage = "You you cannout work before 5PM";
+        private const string _earlyStartTimeMessage = "You cannout work before 5PM";
 
         private const string _lateEndTimeMessage = "You cannout work past 4AM";
 
-        public string CalculateNightlyCharge(string clockInTime, string clockOutTime, Family familyChoice)
+        private readonly ITimeClockPolicy _timeClockPolicy;
+
+        public BabySitter()
         {
-            var result = "0";
-
-            result = ValidateFamilyChoice(familyChoice);
-
-            if (DateTime.Parse(clockInTime) < DateTime.Parse("5PM"))
-            {
-                result = _earlyStartTimeMessage;
-            }
-            else if (DateTime.Parse(clockOutTime) >= DateTime.Parse("4AM")
-                   && DateTime.Parse(clockOutTime) <= DateTime.Parse("5PM"))
-            {
-                result = _lateEndTimeMessage;
-            }
-
-            return result;
+            _timeClockPolicy = new TimeClockPolicy();
         }
 
-        private string ValidateFamilyChoice(Family familyChoice){
-            var errorMessage = string.Empty;
+        public string CalculateNightlyCharge(string clockInTime, string clockOutTime, Family familyChoice)
+        {
+            string result = string.Empty;
+
+            result = ValidateFamilyChoice(result, familyChoice);
+
+            result = ValidateTimeClockEnties(result, clockInTime, clockOutTime);
+
+
+            return result != string.Empty ? result : "0";
+        }
+
+        private string ValidateFamilyChoice(string message, Family familyChoice){
 
             if (familyChoice == null)
 			{
-				errorMessage = _missingFamilyChoiceMessage;
+				message = _missingFamilyChoiceMessage;
 			}
-            return errorMessage;
+            return message;
+        }
+
+        private string ValidateTimeClockEnties(string message, string clockInTime, string clockOutTime){
+
+            var startTime = DateTime.Parse(clockInTime);
+
+            var endTime = DateTime.Parse(clockOutTime);
+
+            if(_timeClockPolicy.AssertStartTimePolicy(startTime)){
+                message = _earlyStartTimeMessage;
+            }
+            else if(_timeClockPolicy.AsserEndTimePolicy(endTime)){
+                message = _lateEndTimeMessage;
+            }
+
+            return message;
         }
     }
 }

@@ -41,6 +41,8 @@
     <Compile Include="Tests\BabySitterTest.cs" />
     <Compile Include="FamilyModels\Family.cs" />
     <Compile Include="FamilyModels\FamilyA.cs" />
+    <Compile Include="TimePolicy\ITimeClockPolicy.cs" />
+    <Compile Include="TimePolicy\TimeClockPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -48,6 +50,7 @@
   <ItemGroup>
     <Folder Include="Tests\" />
     <Folder Include="FamilyModels\" />
+    <Folder Include="TimePolicy\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

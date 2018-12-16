@@ -44,7 +44,7 @@ namespace BabySitterKata.Tests
         {
             //Arrange
             _clockInTime = "4PM";
-            var earlyClockInTimeMessage = "You you cannout work before 5PM";
+            var earlyClockInTimeMessage = "You cannout work before 5PM";
 
             //Act
             var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice);
