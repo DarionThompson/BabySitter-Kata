@@ -50,22 +50,21 @@ namespace BabySitterKata.Tests
             var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, familyChoice);
 
             //Assert
-            Assert.AreEqual(earnings, earlyClockInTimeMessage);
+            Assert.AreEqual(earlyClockInTimeMessage, earnings);
         }
 
 		[Test()]
         public void IfTheBabySitterDoesNotSelectAFamilyAnErrorValidationMessageIsReturned()
 		{
 			//Arrange
-			var earlyClockInTimeMessage = "You Must Select A Family";
+			var selectAFamilyMessage = "You Must Select A Family";
 
 			//Act
 			var earnings = babySitter.CalculateNightlyCharge(clockInTime, clockOutTime, null);
 
 			//Assert
-			Assert.AreEqual(earnings, earlyClockInTimeMessage);
+			Assert.AreEqual(selectAFamilyMessage, earnings);
 		}
-
 
     }
 }
