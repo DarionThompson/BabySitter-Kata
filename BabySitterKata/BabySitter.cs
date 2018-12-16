@@ -1,0 +1,9 @@
+﻿
+
+namespace BabySitterKata
+{
+    class BabySitter
+    {
+        
+    }
+}
