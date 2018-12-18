@@ -11,11 +11,9 @@ namespace BabySitterKata.Services
 		{
 			var result = new List<string>();
 
-			var message = ValidateFamilyChoice(string.Empty, familyChoice);
-
-			if (!string.IsNullOrEmpty(message))
+            if (familyChoice == null)
 			{
-				result.Add(message);
+                result.Add(MessageHelper.missingFamilyChoiceMessage);
 			}
 
             if(string.IsNullOrEmpty(clockInTime))
@@ -24,16 +22,6 @@ namespace BabySitterKata.Services
             }
 
 			return result;
-		}
-
-		private string ValidateFamilyChoice(string message, Family familyChoice)
-		{
-			if (familyChoice == null)
-			{
-				message = MessageHelper.missingFamilyChoiceMessage;
-			}
-
-			return message;
 		}
 	}
 }
