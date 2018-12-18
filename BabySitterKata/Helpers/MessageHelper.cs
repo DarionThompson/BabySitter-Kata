@@ -9,5 +9,7 @@
 		public const string lateEndTimeMessage = "You cannout work past 4AM";
 
 		public const string errorEndTimeMessage = "Your end time cannot be before your start time";
+
+		public const string missingStartTimeMessage = "You must select a start time";
 	}
 }

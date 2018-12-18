@@ -13,7 +13,7 @@ namespace BabySitterKata.TimePolicy
 
 
 		public IList<string> ValidateTimeClockEnties(IList<string> messages, string clockInTime, string clockOutTime)
-		{
+		{   
 			var startTime = DateTime.Parse(clockInTime);
 
 			var endTime = DateTime.Parse(clockOutTime);

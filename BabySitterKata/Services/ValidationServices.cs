@@ -18,6 +18,11 @@ namespace BabySitterKata.Services
 				result.Add(message);
 			}
 
+            if(string.IsNullOrEmpty(clockInTime))
+            {
+                result.Add(MessageHelper.missingStartTimeMessage);
+            }
+
 			return result;
 		}
 

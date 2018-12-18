@@ -22,7 +22,10 @@ namespace BabySitterKata
 		{
 			var result = _validationServices.ValidateUserInputs(clockInTime, clockOutTime, familyChoice);
 
-			result = _timeClockPolicy.ValidateTimeClockEnties(result, clockInTime, clockOutTime);
+            if (!result.Any())
+            {
+                result = _timeClockPolicy.ValidateTimeClockEnties(result, clockInTime, clockOutTime);
+            }
 
 			return result;
 		}
