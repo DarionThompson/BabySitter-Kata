@@ -1,68 +1,31 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using BabySitterKata.FamilyModels;
+using BabySitterKata.Services;
 using BabySitterKata.TimePolicy;
 
 namespace BabySitterKata
 {
-    public class BabySitter
-    {
-        private const string _missingFamilyChoiceMessage = "You Must Select A Family";
+	public class BabySitter
+	{
+		private readonly IValidationServices _validationServices;
 
-        private const string _earlyStartTimeMessage = "You cannout work before 5PM";
+		private readonly ITimeClockPolicy _timeClockPolicy;
 
-        private const string _lateEndTimeMessage = "You cannout work past 4AM";
+		public BabySitter()
+		{
+			_timeClockPolicy = new TimeClockPolicy();
+			_validationServices = new ValidationServices();
+		}
 
-        private const string _errorEndTimeMessage = "Your end time cannot be before your start time";
+		public IList<string> CalculateNightlyCharge(string clockInTime, string clockOutTime, Family familyChoice)
+		{
+			var result = _validationServices.ValidateUserInputs(clockInTime, clockOutTime, familyChoice);
 
-        private readonly ITimeClockPolicy _timeClockPolicy;
+			result = _timeClockPolicy.ValidateTimeClockEnties(result, clockInTime, clockOutTime);
 
-        public BabySitter()
-        {
-            _timeClockPolicy = new TimeClockPolicy();
-        }
+			return result;
+		}
 
-        public string CalculateNightlyCharge(string clockInTime, string clockOutTime, Family familyChoice)
-        {
-            string result = string.Empty;
-
-            result = ValidateFamilyChoice(result, familyChoice);
-
-            result = ValidateTimeClockEnties(result, clockInTime, clockOutTime);
-
-
-            return result != string.Empty ? result : "0";
-        }
-
-        private string ValidateFamilyChoice(string message, Family familyChoice){
-
-            if (familyChoice == null)
-			{
-				message = _missingFamilyChoiceMessage;
-			}
-            return message;
-        }
-
-        private string ValidateTimeClockEnties(string message, string clockInTime, string clockOutTime){
-
-            var startTime = DateTime.Parse(clockInTime);
-
-            var endTime = DateTime.Parse(clockOutTime);
-
-            if(_timeClockPolicy.AssertStartTimePolicy(startTime))
-            {
-                message = _earlyStartTimeMessage;
-            }
-            else if(_timeClockPolicy.AsserEndTimePolicy(endTime))
-            {
-                message = _lateEndTimeMessage;
-            }
-
-            else if(_timeClockPolicy.AssertStartTimeAndEndTimeTimePolicy(startTime, endTime))
-            {
-                message = _errorEndTimeMessage;
-            }
-
-            return message;
-        }
-    }
+	}
 }

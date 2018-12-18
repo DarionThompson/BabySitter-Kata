@@ -1,13 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace BabySitterKata.TimePolicy
 {
     public interface ITimeClockPolicy
     {
-        bool AssertStartTimePolicy(DateTime startTime);
-
-        bool AsserEndTimePolicy(DateTime endTime);
-
-        bool AssertStartTimeAndEndTimeTimePolicy(DateTime startTime, DateTime endTime);
+        IList<string> ValidateTimeClockEnties(IList<string> messages, string clockInTime, string clockOutTime);
     }
 }

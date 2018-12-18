@@ -43,6 +43,9 @@
     <Compile Include="FamilyModels\FamilyA.cs" />
     <Compile Include="TimePolicy\ITimeClockPolicy.cs" />
     <Compile Include="TimePolicy\TimeClockPolicy.cs" />
+    <Compile Include="Services\IValidationService.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
+    <Compile Include="Services\ValidationServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -51,6 +54,9 @@
     <Folder Include="Tests\" />
     <Folder Include="FamilyModels\" />
     <Folder Include="TimePolicy\" />
+    <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="New Folder\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
