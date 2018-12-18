@@ -87,5 +87,20 @@ namespace BabySitterKata.Tests
 
         [Test()]         public void IfTheBabySitterDoesNotSelectAClockInTimeASelectClockInTimeErrorValidationmessageIsReturned()         {             //Arrange             _clockInTime = string.Empty;
             var selectAClockInTimeMessage = "You must select a start time";             //Act           var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice).ToList();              //Assert            Assert.Contains(selectAClockInTimeMessage, earnings);         }
+
+		[Test()]
+		public void IfTheBabySitterDoesNotSelectAClockOutTimeASelectClockOutTimeErrorValidationmessageIsReturned()
+		{
+			//Arrange
+            _clockOutTime = string.Empty;
+
+			var selectAClockOutTimeMessage = "You must select an end time";
+
+			//Act
+			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice).ToList();
+
+			//Assert
+			Assert.Contains(selectAClockOutTimeMessage, earnings);
+		}
 	}
 }

@@ -21,6 +21,11 @@ namespace BabySitterKata.Services
                 result.Add(MessageHelper.missingStartTimeMessage);
             }
 
+            if(string.IsNullOrEmpty(clockOutTime))
+            {
+                result.Add(MessageHelper.missingEndTimeMessage);
+            }
+
 			return result;
 		}
 	}

@@ -11,5 +11,7 @@
 		public const string errorEndTimeMessage = "Your end time cannot be before your start time";
 
 		public const string missingStartTimeMessage = "You must select a start time";
+
+        public const string missingEndTimeMessage = "You must select an end time";
 	}
 }
