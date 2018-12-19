@@ -37,9 +37,17 @@ namespace BabySitterKata
 
         private int CalculateRates(string clockInTime, string clockOutTime, Family familyChoice)
         {
-            var family = familyChoice as FamilyA;
+            if (familyChoice.GetType() == typeof(FamilyA))
+            {
+                var family = familyChoice as FamilyA;
 
-            return family.BabySitterRates(clockInTime, clockOutTime);
+                return family.BabySitterRates(clockInTime, clockOutTime);
+            }
+            else
+            {
+                var family = familyChoice as FamilyB;
+                return family.BabySitterRates(clockInTime, clockOutTime);
+            }
         }
 	}
 }
