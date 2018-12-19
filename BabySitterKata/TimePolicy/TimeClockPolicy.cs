@@ -4,45 +4,46 @@ using BabySitterKata.Helpers;
 
 namespace BabySitterKata.TimePolicy
 {
-	public class TimeClockPolicy
-		: ITimeClockPolicy
-	{
-		private DateTime _clockInRestriction = DateTime.Parse("5PM");
+    public class TimeClockPolicy
+        : ITimeClockPolicy
+    {
+        private DateTime _clockInRestriction = DateTime.Parse("5PM");
 
-		private DateTime _clockOutRestriction = DateTime.Parse("4AM");
+        private DateTime _clockOutRestriction = DateTime.Parse("4AM");
 
 
-		public IList<string> ValidateTimeClockEnties(IList<string> messages, string clockInTime, string clockOutTime)
-		{   
-			var startTime = DateTime.Parse(clockInTime);
+        public IList<string> ValidateTimeClockEnties(IList<string> messages, string clockInTime, string clockOutTime)
+        {
+            var startTime = DateTime.Parse(clockInTime);
 
-			var endTime = DateTime.Parse(clockOutTime);
+            var endTime = DateTime.Parse(clockOutTime);
 
-			if (AssertStartTimePolicy(startTime))
-			{
-				messages.Add(MessageHelper.earlyStartTimeMessage);
-			}
-			else if (AsserEndTimePolicy(endTime))
-			{
-				messages.Add(MessageHelper.lateEndTimeMessage);
-			}
+            if (AssertStartTimePolicy(startTime))
+            {
+                messages.Add(MessageHelper.earlyStartTimeMessage);
+            }
+            else if (AsserEndTimePolicy(endTime))
+            {
+                messages.Add(MessageHelper.lateEndTimeMessage);
+            }
 
-			else if (AssertStartTimeAndEndTimeTimePolicy(startTime, endTime))
-			{
-				messages.Add(MessageHelper.errorEndTimeMessage);
-			}
+            else if (AssertStartTimeAndEndTimeTimePolicy(startTime, endTime))
+            {
+                messages.Add(MessageHelper.errorEndTimeMessage);
+            }
 
-			return messages;
-		}
+            return messages;
+        }
 
+      
 		private bool AssertStartTimePolicy(DateTime startTime)
 		{
-			return startTime < _clockInRestriction;
+            return startTime < _clockInRestriction  && startTime > _clockOutRestriction;
 		}
 
 		private bool AsserEndTimePolicy(DateTime endTime)
 		{
-			return endTime >= _clockOutRestriction && endTime <= _clockInRestriction;
+			return endTime > _clockOutRestriction && endTime <= _clockInRestriction;
 		}
 
 		private bool AssertStartTimeAndEndTimeTimePolicy(DateTime startTime, DateTime endTime)
