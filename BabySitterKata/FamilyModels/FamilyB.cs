@@ -12,20 +12,25 @@ namespace BabySitterKata.FamilyModels
 
         private DateTime _endOfSecondPayPeriod = DateTime.Parse("12AM").AddDays(1);
 
-		public override int BabySitterRates(string startTime, string endTime)
+        private int firstHourlyCharge = 12;
+
+        private int secondHourlyCharge = 8;
+
+        private int thirdHourlyCharge = 16;
+
+		public override int BabySitterRates(DateTime clockedInTime)
 		{
-			var start = DateTime.Parse(startTime);
-
-            if (start >= _startOfFirstPayPeriod && start < _endOfFirstPayPeriod)
+            if (clockedInTime >= _startOfFirstPayPeriod && clockedInTime < _endOfFirstPayPeriod)
             {
-                return 12;
+                return firstHourlyCharge;
             }
-            if(start >= _startOfSecondPayPeriod && start <= _endOfSecondPayPeriod)
+            if(clockedInTime >= _startOfSecondPayPeriod && clockedInTime <= _endOfSecondPayPeriod)
             {
-                return 8;
+                return secondHourlyCharge;
             }
 
-			return 16;
+			return thirdHourlyCharge;
 		}
+
     }
 }

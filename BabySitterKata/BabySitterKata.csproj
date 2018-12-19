@@ -48,6 +48,7 @@
     <Compile Include="Services\ValidationServices.cs" />
     <Compile Include="FamilyModels\FamilyB.cs" />
     <Compile Include="FamilyModels\FamilyC.cs" />
+    <Compile Include="Tests\FamilyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

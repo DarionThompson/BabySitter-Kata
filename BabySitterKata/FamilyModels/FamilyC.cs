@@ -8,16 +8,18 @@ namespace BabySitterKata.FamilyModels
 
 		private DateTime _endOfFirstPayPeriod = DateTime.Parse("9PM");
 
-        public override int BabySitterRates(string startTime, string endTime)
-        {
-			var start = DateTime.Parse(startTime);
+		private int firstHourlyCharge = 21;
 
-			if (start >= _startOfFirstPayPeriod && start < _endOfFirstPayPeriod)
+		private int secondHourlyCharge = 15;
+
+        public override int BabySitterRates(DateTime clockedInTime)
+        {
+			if (clockedInTime >= _startOfFirstPayPeriod && clockedInTime < _endOfFirstPayPeriod)
 			{
-				return 21;
+                return firstHourlyCharge;
 			}
 
-            return 15;
+            return secondHourlyCharge;
         }
     }
 }

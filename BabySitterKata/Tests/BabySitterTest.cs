@@ -14,13 +14,7 @@ namespace BabySitterKata.Tests
 
 		private Family _familyChoiceA;
 
-        private Family _familyChoiceB;
-
-        private Family _familyChoiceC;
-
 		private BabySitter _babySitter;
-
-        private string rate;
 
 		[SetUp]
 		public void SetUp()
@@ -32,10 +26,6 @@ namespace BabySitterKata.Tests
 			_babySitter = new BabySitter();
 
 			_familyChoiceA = new FamilyA();
-
-            _familyChoiceB = new FamilyB();
-
-            _familyChoiceC = new FamilyC();
 		}
 
 		[Test()]
@@ -112,105 +102,5 @@ namespace BabySitterKata.Tests
 			//Assert
 			Assert.Contains(selectAClockOutTimeMessage, earnings);
 		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyAAndWorksAtLeastOneHourBetween5PMAnd11PMAValueOf15IsReturned()
-		{
-			//Arrange
-			rate = "15";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceA).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyAAndWorksAtLeastOneHourBetween11PMAnd4AMAValueOf20IsReturned()
-		{
-            //Arrange
-            _clockInTime = "1:00AM";
-            _clockOutTime = "4:00AM";
-			rate = "20";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceA).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyBAndWorksAtLeastOneHourBetween5PMAnd10PMAValueOf12IsReturned()
-		{
-			//Arrange
-			rate = "12";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceB).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyBAndWorksAtLeastOneHourBetween10PMAnd12AMAValueOf8IsReturned()
-		{
-			//Arrange
-			rate = "8";
-            _clockInTime = "10:30PM";
-            _clockOutTime = "11:30PM";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceB).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyBAndWorksAtLeastOneHourBetween12AMAnd4AMAValueOf16IsReturned()
-		{
-			//Arrange
-			rate = "16";
-			_clockInTime = "12:01AM";
-			_clockOutTime = "3:00AM";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceB).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyCAndWorksAtLeastOneHourBetween5PMAnd9PMAValueOf21IsReturned()
-		{
-			//Arrange
-			rate = "21";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceC).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
-		[Test()]
-		public void IfTheBabySitterSelectsFamilyCAndWorksAtLeastOneHourBetween9PMAnd4AMAValueOf15IsReturned()
-		{
-			//Arrange
-			rate = "15";
-            _clockInTime = "10:00PM";
-			_clockOutTime = "11:00PM";
-
-			//Act
-			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceC).ToList();
-
-			//Assert
-			Assert.Contains(rate, earnings);
-		}
-
 	}
 }
