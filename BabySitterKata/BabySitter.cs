@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BabySitterKata.FamilyModels;
 using BabySitterKata.Services;
@@ -25,10 +26,20 @@ namespace BabySitterKata
             if (!result.Any())
             {
                 result = _timeClockPolicy.ValidateTimeClockEnties(result, clockInTime, clockOutTime);
+
+                if (!result.Any()){
+                    result.Add(CalculateRates(clockInTime, clockOutTime, familyChoice).ToString()); 
+                }
             }
 
 			return result;
 		}
 
+        private int CalculateRates(string clockInTime, string clockOutTime, Family familyChoice)
+        {
+            var family = familyChoice as FamilyA;
+
+            return family.BabySitterRates(clockInTime, clockOutTime);
+        }
 	}
 }
