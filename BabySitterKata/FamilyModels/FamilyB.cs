@@ -6,7 +6,7 @@ namespace BabySitterKata.FamilyModels
     {
         public override int BabySitterRates(string startTime, string endTime)
         {
-            return 8;
+            return 12;
         }
     }
 }

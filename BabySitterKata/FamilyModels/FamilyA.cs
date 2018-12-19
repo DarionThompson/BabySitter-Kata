@@ -14,7 +14,7 @@ namespace BabySitterKata.FamilyModels
 		{
             var start = DateTime.Parse(startTime);
 
-			if ( start >= _startOfFirstPayPeriod && start < _endOfFirstPayPeriod)
+			if (start >= _startOfFirstPayPeriod && start < _endOfFirstPayPeriod)
 			{
 				return 15;
 			}

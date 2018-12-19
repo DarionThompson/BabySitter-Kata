@@ -107,13 +107,13 @@ namespace BabySitterKata.Tests
 		public void IfTheBabySitterSelectsFamilyAAndWorksAtLeastOneHourBetween5PMAnd11PMAValueOf15IsReturned()
 		{
 			//Arrange
-			var pay = "15";
+			var rate = "15";
 
 			//Act
 			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice).ToList();
 
 			//Assert
-			Assert.Contains(pay, earnings);
+			Assert.Contains(rate, earnings);
 		}
 
 		[Test()]
@@ -122,27 +122,27 @@ namespace BabySitterKata.Tests
             //Arrange
             _clockInTime = "1:00AM";
             _clockOutTime = "4:00AM";
-			var pay = "20";
+			var rate = "20";
 
 			//Act
 			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice).ToList();
 
 			//Assert
-			Assert.Contains(pay, earnings);
+			Assert.Contains(rate, earnings);
 		}
 
 		[Test()]
-		public void IfTheBabySitterSelectsFamilyBAndWorksAtLeastOneHourBetween5PMAnd10PMAValueOf8IsReturned()
+		public void IfTheBabySitterSelectsFamilyBAndWorksAtLeastOneHourBetween5PMAnd10PMAValueOf12IsReturned()
 		{
 			//Arrange
-			var pay = "8";
+			var rate = "12";
             _familyChoice = new FamilyB();
 
 			//Act
 			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoice).ToList();
 
 			//Assert
-			Assert.Contains(pay, earnings);
+			Assert.Contains(rate, earnings);
 		}
 	}
 }
