@@ -197,5 +197,20 @@ namespace BabySitterKata.Tests
 			Assert.Contains(rate, earnings);
 		}
 
+		[Test()]
+		public void IfTheBabySitterSelectsFamilyCAndWorksAtLeastOneHourBetween9PMAnd4AMAValueOf15IsReturned()
+		{
+			//Arrange
+			rate = "15";
+            _clockInTime = "10:00PM";
+			_clockOutTime = "11:00PM";
+
+			//Act
+			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceC).ToList();
+
+			//Assert
+			Assert.Contains(rate, earnings);
+		}
+
 	}
 }
