@@ -47,6 +47,7 @@
     <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Services\ValidationServices.cs" />
     <Compile Include="FamilyModels\FamilyB.cs" />
+    <Compile Include="FamilyModels\FamilyC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

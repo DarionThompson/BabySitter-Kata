@@ -40,15 +40,19 @@ namespace BabySitterKata
         {
             if (familyChoice.GetType() == typeof(FamilyA))
             {
-                var family = familyChoice as FamilyA;
+                var familyA = familyChoice as FamilyA;
 
-                return family.BabySitterRates(clockInTime, clockOutTime);
+                return familyA.BabySitterRates(clockInTime, clockOutTime);
             }
-            else
+            if (familyChoice.GetType() == typeof(FamilyB))
             {
-                var family = familyChoice as FamilyB;
-                return family.BabySitterRates(clockInTime, clockOutTime);
+                var familyB = familyChoice as FamilyB;
+                return familyB.BabySitterRates(clockInTime, clockOutTime);
             }
+
+            var familyC = familyChoice as FamilyC;
+            return familyC.BabySitterRates(clockInTime, clockOutTime);
+
         }
 	}
 }

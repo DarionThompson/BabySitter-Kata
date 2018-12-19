@@ -16,6 +16,8 @@ namespace BabySitterKata.Tests
 
         private Family _familyChoiceB;
 
+        private Family _familyChoiceC;
+
 		private BabySitter _babySitter;
 
         private string rate;
@@ -32,6 +34,8 @@ namespace BabySitterKata.Tests
 			_familyChoiceA = new FamilyA();
 
             _familyChoiceB = new FamilyB();
+
+            _familyChoiceC = new FamilyC();
 		}
 
 		[Test()]
@@ -179,5 +183,19 @@ namespace BabySitterKata.Tests
 			//Assert
 			Assert.Contains(rate, earnings);
 		}
+
+		[Test()]
+		public void IfTheBabySitterSelectsFamilyCAndWorksAtLeastOneHourBetween5PMAnd9PMAValueOf21IsReturned()
+		{
+			//Arrange
+			rate = "21";
+
+			//Act
+			var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceC).ToList();
+
+			//Assert
+			Assert.Contains(rate, earnings);
+		}
+
 	}
 }
