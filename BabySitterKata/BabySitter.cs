@@ -27,7 +27,8 @@ namespace BabySitterKata
             {
                 result = _timeClockPolicy.ValidateTimeClockEnties(result, clockInTime, clockOutTime);
 
-                if (!result.Any()){
+                if (!result.Any())
+                {
                     result.Add(CalculateRates(clockInTime, clockOutTime, familyChoice).ToString()); 
                 }
             }
