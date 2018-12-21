@@ -58,8 +58,16 @@ namespace BabySitterKata
             if (familyChoice.GetType() == typeof(FamilyA))
             {
                 var familyA = familyChoice as FamilyA;
-                familyA.CalculateBabySitterPay(clockInTime, clockOutTime);
+                return familyA.CalculateBabySitterPay(clockInTime, clockOutTime);
             }
+
+            if (familyChoice.GetType() == typeof(FamilyB))
+            {
+                var familyB = familyChoice as FamilyB;
+                return familyB.CalculateBabySitterPay(clockInTime, clockOutTime);
+            }
+
+            var familyC = familyChoice as FamilyC;
 
             return familyChoice.CalculateBabySitterPay(clockInTime, clockOutTime);
         }
