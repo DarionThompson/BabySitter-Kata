@@ -21,19 +21,5 @@ namespace BabySitterKata.FamilyModels
 
             return secondHourlyCharge;
         }
-
-        public override int CalculateBabySitterPay(DateTime startTime, DateTime endTime)
-        {
-            int total = 0;
-
-            while (!startTime.Equals(endTime) || startTime > endTime)
-            {
-                total += BabySitterRates(startTime);
-
-                startTime = startTime.AddHours(1);
-            }
-
-            return total;
-        }
     }
 }

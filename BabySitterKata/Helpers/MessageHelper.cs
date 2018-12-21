@@ -1,6 +1,6 @@
 ﻿namespace BabySitterKata.Helpers
 {
-	public static class MessageHelper
+	internal static class MessageHelper
 	{
 		public const string missingFamilyChoiceMessage = "You Must Select A Family";
 
