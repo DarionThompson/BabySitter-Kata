@@ -1,37 +1,17 @@
-﻿<Properties StartupConfiguration="{AA2FEC42-D75A-4CD9-928C-4159F222D820}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BabySitter.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="FamilyModels/FamilyA.cs">
     <Files>
-      <File FileName="FamilyModels/FamilyA.cs" Line="20" Column="42" />
-      <File FileName="Tests/BabySitterTest.cs" Line="107" Column="42" />
-      <File FileName="BabySitter.cs" Line="35" Column="14" />
+      <File FileName="Tests/BabySitterTest.cs" Line="121" Column="22" />
+      <File FileName="BabySitter.cs" Line="62" Column="1" />
+      <File FileName="FamilyModels/Family.cs" Line="11" Column="2" />
+      <File FileName="FamilyModels/FamilyA.cs" Line="27" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="BabySitterKata" expanded="True">
-            <Node name="BabySitterSolution" expanded="True">
-              <Node name="BabySitterKata" expanded="True">
-                <Node name="BabySitterKata" expanded="True">
-                  <Node name="BabySitterTest" expanded="True">
-                    <Node name="IfTheclockoutTimeIsLaterThan4AMAnErrorValidationMessageIsReturned" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-            <Node name="BabySitterTestsSolution" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.BabySitterSolution.BabySitterKata PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/user/Projects/BabySitter/BabySitter-Kata/BabySitterKata/TimePolicy/TimeClockPolicy.cs" relfile="TimePolicy/TimeClockPolicy.cs" line="38" column="1" />
-      <Breakpoint file="/Users/user/Projects/BabySitter/BabySitter-Kata/BabySitterKata/Tests/BabySitterTest.cs" relfile="Tests/BabySitterTest.cs" line="61" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -32,6 +32,11 @@ namespace BabySitterKata
 
                 result = _timeClockPolicy.ValidateTimeClockEnties(result, startTime, endTime);
 
+                if (!result.Any())
+                {
+                    result.Add(CalculateRates(startTime, endTime, familyChoice).ToString());
+                }
+
             }
 			return result;
 		}
@@ -46,6 +51,11 @@ namespace BabySitterKata
             }
 
             return convertedTime;
+        }
+
+        private int CalculateRates(DateTime clockInTime, DateTime clockOutTime, Family familyChoice)
+        {
+            return familyChoice.CalculateBabySitterPay(clockInTime, clockOutTime);
         }
     }
 }

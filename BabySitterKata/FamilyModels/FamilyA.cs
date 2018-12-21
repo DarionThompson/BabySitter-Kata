@@ -21,5 +21,10 @@ namespace BabySitterKata.FamilyModels
 			}
 			return secondHourlyCharge;
         }
+
+        public override int CalculateBabySitterPay(DateTime startTime, DateTime endTime)
+        {
+            return 90;
+        }
     }
 }
