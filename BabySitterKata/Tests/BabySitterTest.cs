@@ -203,5 +203,19 @@ namespace BabySitterKata.Tests
             //Assert
             Assert.Contains(expectedPay, actualPay);
         }
+
+        [Test()]
+        public void IfTheBabySitterSelectsFamilyCAndWorksBetween5PMAnd41MAValueOf189IsReturned()
+        {
+            //Arrange
+            var expectedPay = "189";
+            _clockOutTime = "4AM";
+
+            //Act
+            var actualPay = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceC).ToList();
+
+            //Assert
+            Assert.Contains(expectedPay, actualPay);
+        }
     }
 }
