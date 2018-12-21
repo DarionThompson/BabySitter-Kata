@@ -14,6 +14,8 @@ namespace BabySitterKata.Tests
 
 		private Family _familyChoiceA;
 
+        private Family _familyChoiceB;
+
 		private BabySitter _babySitter;
 
 		[SetUp]
@@ -26,6 +28,8 @@ namespace BabySitterKata.Tests
 			_babySitter = new BabySitter();
 
 			_familyChoiceA = new FamilyA();
+
+            _familyChoiceB = new FamilyB();
 		}
 
 		[Test()]
@@ -128,6 +132,20 @@ namespace BabySitterKata.Tests
 
             //Act
             var actualPay = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceA).ToList();
+
+            //Assert
+            Assert.Contains(expectedPay, actualPay);
+        }
+
+        [Test()]
+        public void IfTheBabySitterSelectsFamilyBAndWorksBetween5PMAnd10PMAValueOf60IsReturned()
+        {
+            //Arrange
+            var expectedPay = "60";
+            _clockOutTime = "10PM";
+
+            //Act
+            var actualPay = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceB).ToList();
 
             //Assert
             Assert.Contains(expectedPay, actualPay);

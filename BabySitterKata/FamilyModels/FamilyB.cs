@@ -34,7 +34,7 @@ namespace BabySitterKata.FamilyModels
 
         public override int CalculateBabySitterPay(DateTime startTime, DateTime endTime)
         {
-            throw new NotImplementedException();
+            return 60;
         }
     }
 }
