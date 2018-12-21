@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace BabySitterKata.Tests
 {
-	[TestFixture()]
+    [TestFixture()]
 	public class BabySitterTest
 	{
 
@@ -86,7 +86,9 @@ namespace BabySitterKata.Tests
 		}
 
         [Test()]         public void IfTheBabySitterDoesNotSelectAClockInTimeASelectClockInTimeErrorValidationmessageIsReturned()         {             //Arrange             _clockInTime = string.Empty;
-            var selectAClockInTimeMessage = "You must select a start time";             //Act           var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceA).ToList();              //Assert            Assert.Contains(selectAClockInTimeMessage, earnings);         }
+            var selectAClockInTimeMessage = "You must select a start time";             //Act
+           var earnings = _babySitter.CalculateNightlyCharge(_clockInTime, _clockOutTime, _familyChoiceA).ToList();           
+           //Assert            Assert.Contains(selectAClockInTimeMessage, earnings);         }
 
 		[Test()]
 		public void IfTheBabySitterDoesNotSelectAClockOutTimeASelectClockOutTimeErrorValidationmessageIsReturned()
@@ -102,5 +104,5 @@ namespace BabySitterKata.Tests
 			//Assert
 			Assert.Contains(selectAClockOutTimeMessage, earnings);
 		}
-	}
+    }
 }

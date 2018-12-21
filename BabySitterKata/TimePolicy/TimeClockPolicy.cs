@@ -7,27 +7,22 @@ namespace BabySitterKata.TimePolicy
     public class TimeClockPolicy
         : ITimeClockPolicy
     {
-        private DateTime _clockInRestriction = DateTime.Parse("5PM");
+        private readonly DateTime _clockInRestriction = DateTime.Parse("5PM");
 
-        private DateTime _clockOutRestriction = DateTime.Parse("4AM");
+        private readonly DateTime _clockOutRestriction = DateTime.Parse("4AM").AddDays(1);
 
-
-        public IList<string> ValidateTimeClockEnties(IList<string> messages, string clockInTime, string clockOutTime)
+        public IList<string> ValidateTimeClockEnties(IList<string> messages, DateTime clockInTime, DateTime clockOutTime)
         {
-            var startTime = DateTime.Parse(clockInTime);
-
-            var endTime = DateTime.Parse(clockOutTime);
-
-            if (AssertStartTimePolicy(startTime))
+            if (AssertStartTimePolicy(clockInTime))
             {
                 messages.Add(MessageHelper.earlyStartTimeMessage);
             }
-            else if (AsserEndTimePolicy(endTime))
+            else if (AsserEndTimePolicy(clockOutTime))
             {
                 messages.Add(MessageHelper.lateEndTimeMessage);
             }
 
-            else if (AssertStartTimeAndEndTimeTimePolicy(startTime, endTime))
+            else if (AssertStartTimeAndEndTimeTimePolicy(clockInTime, clockOutTime))
             {
                 messages.Add(MessageHelper.errorEndTimeMessage);
             }
@@ -35,20 +30,19 @@ namespace BabySitterKata.TimePolicy
             return messages;
         }
 
-      
 		private bool AssertStartTimePolicy(DateTime startTime)
 		{
-            return startTime < _clockInRestriction  && startTime > _clockOutRestriction;
+            return startTime < _clockInRestriction;
 		}
 
 		private bool AsserEndTimePolicy(DateTime endTime)
 		{
-			return endTime > _clockOutRestriction && endTime <= _clockInRestriction;
+			return endTime > _clockOutRestriction;
 		}
 
 		private bool AssertStartTimeAndEndTimeTimePolicy(DateTime startTime, DateTime endTime)
 		{
 			return endTime < startTime;
 		}
-	}
+    }
 }

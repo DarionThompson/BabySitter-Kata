@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('packages\NUnit.3.11.0\build\NUnit.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -38,7 +39,6 @@
   <ItemGroup>
     <Compile Include="BabySitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\BabySitterTest.cs" />
     <Compile Include="FamilyModels\Family.cs" />
     <Compile Include="FamilyModels\FamilyA.cs" />
     <Compile Include="TimePolicy\ITimeClockPolicy.cs" />
@@ -48,18 +48,18 @@
     <Compile Include="Services\ValidationServices.cs" />
     <Compile Include="FamilyModels\FamilyB.cs" />
     <Compile Include="FamilyModels\FamilyC.cs" />
+    <Compile Include="Tests\BabySitterTest.cs" />
     <Compile Include="Tests\FamilyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tests\" />
     <Folder Include="FamilyModels\" />
     <Folder Include="TimePolicy\" />
     <Folder Include="Services\" />
     <Folder Include="Helpers\" />
-    <Folder Include="New Folder\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

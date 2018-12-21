@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabySitterKata", "BabySitterKata.csproj", "{AA2FEC42-D75A-4CD9-928C-4159F222D820}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BabySitterSolution", "BabySitterSolution", "{9B8011B0-208C-4097-9450-655B1D47B4F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BabySitterTestsSolution", "BabySitterTestsSolution", "{BC35E3F8-5FDD-42C9-9EFC-707EC17378BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabySitterTests", "BabySitterTests\BabySitterTests.csproj", "{5A2206BF-91DC-4D54-95B6-12DEBC870E01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +19,13 @@ Global
 		{AA2FEC42-D75A-4CD9-928C-4159F222D820}.Debug|x86.Build.0 = Debug|x86
 		{AA2FEC42-D75A-4CD9-928C-4159F222D820}.Release|x86.ActiveCfg = Release|x86
 		{AA2FEC42-D75A-4CD9-928C-4159F222D820}.Release|x86.Build.0 = Release|x86
+		{5A2206BF-91DC-4D54-95B6-12DEBC870E01}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A2206BF-91DC-4D54-95B6-12DEBC870E01}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A2206BF-91DC-4D54-95B6-12DEBC870E01}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A2206BF-91DC-4D54-95B6-12DEBC870E01}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA2FEC42-D75A-4CD9-928C-4159F222D820} = {9B8011B0-208C-4097-9450-655B1D47B4F9}
+		{5A2206BF-91DC-4D54-95B6-12DEBC870E01} = {BC35E3F8-5FDD-42C9-9EFC-707EC17378BD}
 	EndGlobalSection
 EndGlobal

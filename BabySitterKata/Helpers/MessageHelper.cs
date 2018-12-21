@@ -13,5 +13,7 @@
 		public const string missingStartTimeMessage = "You must select a start time";
 
         public const string missingEndTimeMessage = "You must select an end time";
+
+        public const string amSuffix = "AM";
 	}
 }

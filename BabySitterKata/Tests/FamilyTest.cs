@@ -121,5 +121,6 @@ namespace BabySitterKata.Tests
             //Assert
             Assert.AreEqual(expectedRate, actualRate);
         }
+
     }
 }
