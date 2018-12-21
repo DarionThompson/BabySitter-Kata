@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="FamilyModels/FamilyB.cs">
     <Files>
-      <File FileName="Tests/BabySitterTest.cs" Line="164" Column="2" />
+      <File FileName="Tests/BabySitterTest.cs" Line="169" Column="36" />
       <File FileName="FamilyModels/Family.cs" Line="7" Column="69" />
-      <File FileName="FamilyModels/FamilyA.cs" Line="35" Column="13" />
-      <File FileName="FamilyModels/FamilyB.cs" Line="37" Column="20" />
+      <File FileName="FamilyModels/FamilyB.cs" Line="17" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

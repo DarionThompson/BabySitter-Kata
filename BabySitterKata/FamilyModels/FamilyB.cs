@@ -8,8 +8,6 @@ namespace BabySitterKata.FamilyModels
 
 		private readonly DateTime _endOfFirstPayPeriod = DateTime.Parse("10PM");
 
-		private readonly DateTime _startOfSecondPayPeriod = DateTime.Parse("10:01PM");
-
         private readonly DateTime _endOfSecondPayPeriod = DateTime.Parse("12AM").AddDays(1);
 
         private readonly int firstHourlyCharge = 12;
@@ -24,7 +22,7 @@ namespace BabySitterKata.FamilyModels
             {
                 return firstHourlyCharge;
             }
-            if(clockedInTime >= _startOfSecondPayPeriod && clockedInTime <= _endOfSecondPayPeriod)
+            if(clockedInTime >= _endOfFirstPayPeriod && clockedInTime < _endOfSecondPayPeriod)
             {
                 return secondHourlyCharge;
             }
@@ -34,7 +32,16 @@ namespace BabySitterKata.FamilyModels
 
         public override int CalculateBabySitterPay(DateTime startTime, DateTime endTime)
         {
-            return 60;
+            int total = 0;
+
+            while (!startTime.Equals(endTime) || startTime > endTime)
+            {
+                total += BabySitterRates(startTime);
+
+                startTime = startTime.AddHours(1);
+            }
+
+            return total;
         }
     }
 }
